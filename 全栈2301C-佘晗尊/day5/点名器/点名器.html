@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        padding: 100px 50px 0px 50px;
+        background:url(../点名器//preview.jpg) 0 0 no-repeat;
+        background-size:cover;
+    }
+
+    #tit {
+        text-align: center;
+    }
+
+    .show {
+        display: flex;
+        flex-wrap: wrap;
+        width: 600px;
+    }
+
+    .span {
+        display: block;
+        width: 20%;
+        text-align: center;
+        line-height: 50px;
+        
+        color: transparent;
+        font-size: 30px;
+         background-clip: text;
+        font-weight: 900;
+        font-size: 30px;
+        -webkit-background-clip: text;
+    }
+
+    .box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .randow {
+        display: flex;
+        height: 200px;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 50px;
+        width: 500px;
+    }
+
+    button {
+        background-color: greenyellow;
+        padding: 5px 10px;
+        color: black;
+        border-radius: 15px;
+        border: none;
+    }
+
+    #time {
+        text-align: right;
+        margin: 50px 0px;
+    }
+
+    
+</style>
+
+<body>
+    <h2 id="tit" style="color: white;">2301c点名器</h2>
+    
+    <p id="time" style="color: white;">
+
+    </p>
+
+    <div class="box">
+        <div class="show">
+
+        </div>
+
+        <div class="randow">
+            <h1 style="color: white;">天选之人: <span id="val" style="color: white;"></span> </h1>
+            <div class="btn">
+                <button onclick="dan()" id="btn1">单人点名</button>
+                <button onclick="two()" id="btn2">双人点名</button>
+                <button onclick="boy()" id="btn3">男生点名</button>
+                <button onclick="gliy()" id="btn4">女生点名</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const ARR = ['杨晓宇', '陈亚东', '赵中阳', '展立业', '曹昊然', '李媛媛', '王婷婷',
+        '孙建', '杨子乐', '冯士靖', '张秋景', '李炎沛', '裴丽珂', '付少聪', '曹博文',
+        '李超凡', '王凯', '丁卓肖', '余道林', '王志阳', '张清莲', '刘博文', '周天龙',
+        '杨浩淇', '韩锡金']
+
+    const man = ['杨晓宇', '陈亚东', '赵中阳', '展立业', '曹昊然', '孙建', '张秋景', '李炎沛',
+        '付少聪', '曹博文',
+        '李超凡', '王凯', '丁卓肖', '余道林', '王志阳', '张清莲', '刘博文', '周天龙',
+        '杨浩淇', '韩锡金'
+    ]
+
+    const nv = [
+        '李媛媛', '王婷婷', '杨子乐', '冯士靖', '裴丽珂'
+    ]
+
+    let show = document.querySelector('.show')
+
+    for (var i = 0; i < ARR.length; i++) {
+        let span = document.createElement('span')
+        span.innerHTML += ARR[i]
+        show.appendChild(span)
+        span.className = 'span'
+    }
+
+    let spans=document.querySelectorAll('.span')
+    function color() {
+        for (var i=0;i<spans.length;i++){
+            let deg=Math.floor(Math.random()*361)
+            let color=Math.random().toString(16).slice(2,8)
+            let color2=Math.random().toString(16).slice(2,8)
+            spans[i].style.backgroundImage= `linear-gradient(${deg}deg,#${color},#${color2})`
+        }
+    }
+    color()
+
+    setInterval(color,1500)
+
+    let time = document.querySelector('#time')
+    function Time() {
+        time.innerHTML = new Date().toLocaleString()
+    }
+
+    setInterval(() => {
+        Time()
+    });
+
+    var stop
+
+    let btn1 = document.querySelector('#btn1')
+    let btn2 = document.querySelector('#btn2')
+    let btn3 = document.querySelector('#btn3')
+    let btn4 = document.querySelector('#btn4')
+
+    function dan() {
+        if (btn1.innerHTML == '单人点名') {
+            btn1.innerHTML = '停止'
+            stop = setInterval(getVal, 100)
+            return
+        }
+
+        if (btn1.innerHTML == '停止') {
+            btn1.innerHTML = '单人点名'
+            clearInterval(stop)
+            return
+        }
+    }
+
+    function two() {
+        if (btn2.innerHTML == '双人点名') {
+            btn2.innerHTML = '停止'
+            stop = setInterval(getVal2, 100)
+            return
+        }
+
+        if (btn2.innerHTML == '停止') {
+            btn2.innerHTML = '双人点名'
+            clearInterval(stop)
+            return
+        }
+    }
+
+    function boy() {
+        if (btn3.innerHTML == '男生点名') {
+            btn3.innerHTML = '停止'
+            stop = setInterval(getVal3, 100)
+            return
+        }
+
+        if (btn3.innerHTML == '停止') {
+            btn3.innerHTML = '男生点名'
+            clearInterval(stop)
+            return
+        }
+    }
+
+    function gliy() {
+        if (btn4.innerHTML == '女生点名') {
+            btn4.innerHTML = '停止'
+            stop = setInterval(getVal4, 100)
+            return
+        }
+
+        if (btn4.innerHTML == '停止') {
+            btn4.innerHTML = '女生点名'
+            clearInterval(stop)
+            return
+        }
+    }
+
+    let val = document.querySelector('#val')
+
+    function getVal() {
+        val.innerHTML = ARR[Math.floor(Math.random() * ARR.length)]
+    }
+
+    function getVal2() {
+        let a = ARR[Math.floor(Math.random() * ARR.length)]
+        let b = ARR[Math.floor(Math.random() * ARR.length)]
+        if (a == b) return
+        val.innerHTML = a + ',' + b
+    }
+
+    function getVal3() {
+        val.innerHTML = man[Math.floor(Math.random() * man.length)]
+    }
+
+    function getVal4() {
+        val.innerHTML = nv[Math.floor(Math.random() * nv.length)]
+    }
+
+
+
+</script>
+
+</html>

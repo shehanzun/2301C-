@@ -1,0 +1,106 @@
+1.Map对象
+	① 概念和出现的原因:JavaScript 的对象(Object) ，本质上是键值对的集合Hash 结构)，但是传统上只能用字符串当作键。这给它的使用带来了很大的限制。为了解决这个问题，ES6 提供了 Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值(包括对象)都可以当作键。也就是说，Object 结构提供了“字符串一值”的对应，Map 结构提供了“值值”的对应，是一种更完善的 Hash 结构实现。如果你需要“键值对”的数据结构，Map 比 Object 更合适。
+	② map的方法使用
+		1.使用new Map()
+		2.判断长度: map.size
+		3.添加元素: map.setl
+		4.获取键值: map.get
+		5，判断当前对象存不存在该属性: map.has
+		6.删除当前对象中的属性: map.delete
+		7.清空该方法的所有成员: map.clear
+
+
+
+2. set数组
+
+   ① 概念: ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值.
+   ② 本质: 是一个构造函数，
+   ③ set的实例遍历操作
+   	· Set.prototype.keys() : 返回键名的遍历器
+   	· Set.prototype.valuesO) : 返回键值的遍历器
+   	· Set.prototype.entries(): 返回键值对的遍历器
+   	· Set.prototype.forEach() :使用回调函数遍历每个成员
+   ④ 方法总结
+   	(1).获取元素的个数: array.size()
+   	(2).添加元素: array.add()
+   	(3).删除元素: array.delete()
+   	(4).检测是否存在这个值: array.has()
+   	(5).清空: array.clear()
+
+3. class
+
+   ​	① ES6 提供了更接近传统语言的写法，引入了 Class(类)这个概念，作为对象的模板。通过 cLass 关键字，可以定义类。基本上，ES6 的 class 可以看作只是一个语法糖，它的绝大部分功能，ES5 都可以做到，新的 lass 写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。上面的代码用 ES6 的 cLass 改写，就是下面这样。
+
+   ​		(1) 传统的es5的写法
+
+   ​				function Point(x, y) {
+   ​								this.x = x;
+   ​								this.y = y;
+
+   ​							}
+
+   ​				Point.prototype.toString = function () {
+   ​								return '('+ this.x + ',' + this.y + ')';
+
+   ​							}
+
+   ​				var p = new Point(1，2);
+
+   ​		(2) 引入类以后class得写法
+
+   ​		(3) class的set和get属性
+
+   ​		(4) 类的static属性	
+   
+   ​			1.概念:类(class)通过 static 关键字定义静态方法。不能在类的实例上调用静态方法，而应该通过类本身调用。这些通常是实用程序方法，例如创建或克隆对象的功能。
+   
+4. proxy
+
+   ① 概念
+   	Proxy 对象用于创建一个对象的代理,从而实现基本操作的拦截和自定义 (如属性查找、赋值、枚举、函数调用等)
+
+   ② 语法：
+
+   ​	const p = new Proxy(target, handler)
+   ​		(1) target
+   ​			要使用 Proxy 包装的目标对象 (可以是任何类型的对象，包括原生数组，函数，甚至另一个代理)
+
+   ​		(2) handler
+   ​			一个通常以函数作为属性的对象，各属性中的函数分别定义了在执行各种操作时代理 p 的行为。
+
+   ③  handler (en-US)
+   包含捕捉器 (trap)的占位符对象，可译为处理器对象,
+   	(1) traps
+   		提供属性访问的方法。这类似于操作系统中捕获器的概念,
+   	(2) target
+   		被 Proxy 代理虚拟化的对象。它常被作为代理的存储后端。根据目标验证关于对象不可扩展性或不可配置属性的不变量(保持不变的语义)
+
+5. 总结
+
+   ES6新增了哪些特性
+
+   ① let 和 const
+
+   ② 箭头函数
+
+   ③ 默认参数
+
+   ④ 扩展运算符
+
+   ⑤ 模板字符串
+
+   ⑥ Promise
+
+   ⑦ 迭代器和生成器
+
+   ⑧ Map / Set / Symbol
+
+   ⑨ class类
+
+   ⑩ 解构赋值
+
+   ⑪ 对象的方法 Object.assion
+
+   ⑫ Incluide 数组方法：Array.from
+
+   

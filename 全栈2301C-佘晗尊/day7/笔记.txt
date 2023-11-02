@@ -1,0 +1,42 @@
+ajax
+1.建立连接，请求接口，
+2.确定请求的方法，地址
+3.配置好参数
+4.确定是否成功
+
+const xhr = new XMLHttpRequest()
+xhr.open('get','url')
+xhr.send(参数)
+xhr.onreadystatechange=function(){
+	xhr.readystate==4的话表示成功建立请求连接
+	xhr.status的值在200到299之间表示请求成功
+}
+
+ajax,promise,axios是根据XMLHttpRequest封装的
+
+Promise
+可以链式调用,里面有两个参数:resolve,reject ，它本身是个容器，
+状态一经凝固，不会在变化
+状态: 有三个状态,padding,fufilled,reject3.状态变化: 从pedding -> 成动,从padding->reject
+promise的then返回的是一个promise对象
+
+promise.all([])all同时发起请求，是并发请求
+所有参数成功，才返回数组形式的信息，有一个失败
+会返回这个失败的信息
+
+promise.race([])
+只要有一个Promise变成fulfilled状态，那么就结束
+ 多个promise同时请求的时候，以第一个请求完成的promse状态 作为整个promise的状态多个宏任务 执行顺序是 先进先出
+结束的终点 直到有一个resolve出现
+
+Promise.finally（）
+
+async/await 链式调用的语法糖
+async声明异步函数
+ await 是将函数改变为同步请求
+await并不是将异步函数变成同步函数，只是改变了异步函数的调用方式
+调用await的时候，他会等待Promise执行出结果后将结果返回。可以通过变量进行
+接收结果
+调用异步函数的时候，可以直接在函数前使用await关键字来对其进行调用
+一旦一个接口报错，整个程序报错，不会再往后走
+async里的代码是从上到下执行

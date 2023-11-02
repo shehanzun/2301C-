@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input{
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        line-height: 100px;
+        text-align: center;
+        border-radius: 10px;
+        background-color: gainsboro;
+        outline: none;
+    }
+    table{
+        background-color: #b3d7ff;
+        margin: auto;
+    }
+    table td>input[type=button]:hover{
+        background: rgb(75, 75, 243);
+        color: white;
+        cursor: pointer;
+    }
+    .dis{
+        width: 410px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <table>
+        <tr>
+          <td colspan="5"><input type="text" style="" class="dis" readonly="true" ></td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="button" value="del" style="width: 205px" onclick="del()"></td>
+          <td colspan="2"><input type="button" value="C"  style="width: 205px" onclick="clean()"></td>
+        </tr>
+        <tr>
+          <td><input type="button"value="7" onclick="add('7')"></td>
+          <td><input type="button"value="8" onclick="add('8')"></td>
+          <td><input type="button"value="9" onclick="add('9')"></td>
+          <td><input type="button"value="/" onclick="add('/')"></td>
+        </tr>
+        <tr>
+          <td><input type="button"value="4" onclick="add('4')"></td>
+          <td><input type="button"value="5" onclick="add('5')"></td>
+          <td><input type="button"value="6" onclick="add('6')"></td>
+          <td><input type="button"value="*" onclick="add('*')"></td>
+        </tr>
+        <tr>
+          <td><input type="button"value="1" onclick="add('1')"></td>
+          <td><input type="button"value="2" onclick="add('2')"></td>
+          <td><input type="button"value="3" onclick="add('3')"></td>
+          <td><input type="button"value="-" onclick="add('-')"></td>
+        </tr>
+        <tr>
+          <td><input type="button"value="0" onclick="add('0')"></td>
+          <td><input type="button"value="." onclick="add('.')"></td>
+          <td><input type="button"value="+" onclick="add('+')"></td>
+          <td><input type="button"value="=" onclick="result()" ></td>
+        </tr>
+      </table>
+      <script>
+        
+
+        var rel=''
+        
+        function val(rel) {
+            var dis=document.querySelector('.dis')
+            console.log(dis)
+            dis.value=rel
+        }
+
+
+        //这里就是按键绑定的方法，把获取到的值拼接到rel字符串上       
+        const add=(index)=>{
+            rel +=index;
+            console.log(rel)
+            val(rel)
+        }       
+                  
+        const result=()=>{
+            //这里是用eval方法进行一个计算
+            rel = eval(rel)
+            //这里的目的是为了显示在显示栏的数字还是字符串，只有字符串才能进行退格，归零的操作
+            rel = String(this.rel);
+            val(rel)
+
+           
+        }         
+                  
+        //这个就是退格的操作，用字符串的substring方法截取，每一次截取都是从第0个开始，到长度的前一个，就相当于退格了。
+        const del=()=>{
+            rel =rel.substring(0,rel.length-1);
+            val(rel)
+        }
+        //这里就是归零的方法，通过给结果赋一个空字符串的方法来实现归零的操作，当然也可以使用删除的方法，例如unshift方法或者pop方法，直接赋值为空比较简便。
+        const clean=()=>{
+            rel = "";
+            val(rel)
+        }
+      </script>
+</body>
+</html>
