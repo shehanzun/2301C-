@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    body{
+
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box{
+        margin: 100px auto;
+        width: 500px;
+        height: 600px;
+        border: 1px solid black;
+    }
+
+    .view{
+        width: 480px;
+        height: 150px;
+        margin: 10px auto;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        
+        justify-content: center;
+        align-items: flex-end;
+        font-size: 40px;
+    }
+
+    .val{
+        width: 100%;
+        height: 430px;
+    }
+
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    li{
+        list-style: none;
+        width: 16%;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        background-color: #ccc;
+        border-radius: 10px;
+        margin: 10px;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="view">
+            <div class="it"></div>
+            <div class="its"></div>
+        </div>
+
+        <div class="val">
+
+        </div>
+    </div>
+</body>
+
+<script>
+    let arr=[
+        '1','2','3','=','+','4'
+        ,'5','6','Back','-','7'
+        ,'8','9','C','*','0','0'
+        ,'.','/'
+    ]
+
+    let content=`<ul>`
+    for(var i=0;i<arr.length;i++){
+	    	content += `<li>
+                ${arr[i]}
+	    	</li>`;
+	}
+    content+=`</ul>`
+
+    var box=document.querySelector('.val')
+    box.innerHTML=content
+
+    let it=document.querySelector('.it')
+    let its=document.querySelector('.its')
+    it.innerHTML=0
+    box.addEventListener('click',function (e) {
+        if (e.target.innerText>=0) {
+            console.log(1)
+        }el
+        let val=e.target.innerText
+        it.innerText+=val
+        let eval=it.innerText
+        
+        if (eval.includes('+')&&eval.includes('=')) {
+            pushs(eval)
+        }
+        
+        if (eval.includes('-')&&eval.includes('=')) {
+            splices(eval)
+        }
+
+        if (eval.includes('*')&&eval.includes('=')) {
+            cheng(eval)
+        }
+
+        if (eval.includes('/')&&eval.includes('=')) {
+            chu(eval)
+        }
+
+        if (eval.includes('C')) {
+            nulls()
+        }
+
+        if (eval.includes('Back')) {
+            tui(eval,val)
+        }
+    })
+    
+
+    function pushs(e) {
+        let a=e.split('=')[0]
+        let b=a.split('+')[0]
+        let c=a.split('+')[1]
+        its.innerText=b*1+c*1
+    }
+
+    function splices(e) {
+        let a=e.split('=')[0]
+        let b=a.split('-')[0]
+        let c=a.split('-')[1]
+        its.innerText=b*1-c*1
+    }
+
+    function cheng(e) {
+        let a=e.split('=')[0]
+        let b=a.split('*')[0]
+        let c=a.split('*')[1]
+        its.innerText=b*1*c*1
+    }
+    
+
+    function chu(e) {
+        let a=e.split('=')[0]
+        let b=a.split('/')[0]
+        let c=a.split('/')[1]
+        its.innerText=b*1/c*1
+    }
+
+    function nulls() {
+        it.innerText=0
+        its.innerText=''
+    }
+
+    function tui(e,v) {
+        let a=e.split('Back')[0]
+        view.innerText=a.slice(0,a.length-1)
+    }
+</script>
+</html>

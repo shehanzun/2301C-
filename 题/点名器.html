@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        padding: 100px 50px 0 50px;
+    }
+
+    #tit {
+        text-align: center;
+    }
+
+    #time {
+        text-align: right;
+        margin-top: 50px;
+    }
+
+    table {
+        width: 600px;
+        height: 400px;
+    }
+
+    tr {
+        width: 100%;
+        height: 130px;
+    }
+
+    td {
+        width: 20%;
+        height: 130px;
+        line-height: 130px;
+        text-align: center;
+        background-clip: text;
+        font-weight: 900;
+        font-size: 30px;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    #val {
+        background-clip: text;
+        font-weight: 900;
+        font-size: 30px;
+        -webkit-background-clip: text;
+    }
+
+    .bto button {
+        padding: 5px 10px;
+        background-color: greenyellow;
+    }
+
+    .box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .rig {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 200px;
+        width: 450px;
+    }
+</style>
+
+<body>
+    <h2 id="tit">2301C点名表</h2>
+    <div id="time">
+
+    </div>
+
+    <div class="box">
+        <table>
+            <tr>
+                <td>曹博文</td>
+                <td>丁卓肖</td>
+                <td>杨浩其</td>
+                <td>王婷婷</td>
+                <td>王凯</td>
+            </tr>
+            <tr>
+                <td>李媛媛</td>
+                <td>赵晓宁</td>
+                <td>冯兴微</td>
+                <td>刘博文</td>
+                <td>张梦佳</td>
+            </tr>
+            <tr>
+                <td>曹世豪</td>
+                <td>韩锡金</td>
+                <td>张青莲</td>
+                <td>余道林</td>
+                <td>曹浩然</td>
+            </tr>
+        </table>
+
+        <div class="rig">
+            <h1>天选之人: <span id="val"></span> </h1>
+            <div class="bto">
+                <button onclick="dan()" id="btn1">单人点名</button>
+                <button onclick="two()" id="btn2">双人点名</button>
+                <button onclick="nan()" id="btn3">男生点名</button>
+                <button onclick="nvs()" id="btn4">女生点名</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function Time() {
+        let time = document.querySelector('#time')
+        time.innerHTML = '时间为: ' + new Date().toLocaleString()
+    }
+    setInterval(() => {
+        Time()
+    });
+
+    let arr = [
+        '曹博文', '丁卓肖', '杨浩其', '王婷婷',
+        '王凯', '李媛媛', '赵晓宁', '冯兴微', '刘博文'
+        , '张梦佳', '曹世豪', '韩锡金', '张青莲', '余道林', '曹浩然',
+        '肖鹿', '林清如', '川上由美', '小鸟游六花', '碧瑶'
+    ]
+
+    let man = [
+        '曹博文', '丁卓肖', '杨浩其', '王凯', '赵晓宁', '刘博文', '曹世豪', '韩锡金', '张青莲', '余道林', '曹浩然'
+    ]
+
+    let nv = [
+        '王婷婷', '李媛媛', '冯兴微', '赵丽颖', '张梦佳', '肖鹿', '林清如', '川上由美', '小鸟游六花', '碧瑶'
+    ]
+
+    const val = document.querySelector('#val')
+
+
+    function randoms() {
+
+        let tds = document.querySelectorAll('td')
+        for (var i = 0; i < tds.length; i++) {
+            let r = Math.floor(Math.random() * 256)
+            let g = Math.floor(Math.random() * 256)
+            let b = Math.floor(Math.random() * 256)
+
+            let r1 = Math.floor(Math.random() * 256)
+            let g2 = Math.floor(Math.random() * 256)
+            let b3 = Math.floor(Math.random() * 256)
+            console.log(r,g,b)
+            console.log(r1,g2,b3)
+            tds[i].style.backgroundImage = `linear-gradient(to right,rgb(${r},${g}, ${b}),rgb(${r1},${g2}, ${b3}))`
+        }
+
+    }
+    randoms()
+
+    setInterval(randoms, 2000)
+
+
+    let btn1 = document.querySelector('#btn1')
+    let btn2 = document.querySelector('#btn2')
+    let btn3 = document.querySelector('#btn3')
+    let btn4 = document.querySelector('#btn4')
+    var a
+    function dan(e) {
+
+        if (btn1.innerHTML == '单人点名') {
+            btn1.innerHTML = '停止'
+            a = setInterval(() => {
+                random()
+            }, 100)
+            console.log(a)
+            return
+        }
+
+        if (btn1.innerHTML == '停止') {
+            btn1.innerHTML = '单人点名'
+            clearInterval(a)
+            return
+        }
+    }
+
+    function two() {
+
+        if (btn2.innerHTML == '双人点名') {
+            btn2.innerHTML = '停止'
+            randoms()
+            val.style.backgroundImage = randoms()
+            a = setInterval(random2, 100)
+            return
+        }
+
+        if (btn2.innerHTML == '停止') {
+            btn2.innerHTML = '双人点名'
+            clearInterval(a)
+            return
+        }
+    }
+
+
+    function nan() {
+        if (btn3.innerHTML == '男生点名') {
+            btn3.innerHTML = '停止'
+            randoms()
+            val.style.backgroundImage = randoms()
+            a = setInterval(random3, 100)
+            return
+        }
+
+        if (btn3.innerHTML == '停止') {
+            btn3.innerHTML = '男生点名'
+            clearInterval(a)
+            return
+        }
+    }
+
+    function nvs() {
+        if (btn4.innerHTML == '女生点名') {
+            btn4.innerHTML = '停止'
+            randoms()
+            val.style.backgroundImage = randoms()
+            a = setInterval(random4, 100)
+            return
+        }
+
+        if (btn4.innerHTML == '停止') {
+            btn4.innerHTML = '女生点名'
+            clearInterval(a)
+            return
+        }
+    }
+
+    function random() {
+        val.innerHTML = arr[Math.floor(Math.random() * arr.length)]
+    }
+
+    function random2() {
+        let a = arr[Math.floor(Math.random() * arr.length)]
+        let b = arr[Math.floor(Math.random() * arr.length)]
+        val.innerHTML = a + ',' + b
+        if (a == b) return
+    }
+
+    function random3() {
+        val.innerHTML = man[Math.floor(Math.random() * man.length)]
+    }
+
+    function random4() {
+        val.innerHTML = nv[Math.floor(Math.random() * nv.length)]
+    }
+
+
+
+</script>
+
+</html>

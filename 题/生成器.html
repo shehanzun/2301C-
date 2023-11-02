@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 90%;
+        background-color: orangered;
+        aspect-ratio: 16/9;
+    }
+</style>
+<body>
+    <div>
+
+    </div>
+</body>
+<script>
+    function * name() {
+        yield '1'
+        yield '2'
+        yield '3'
+    }
+
+    let iterator=name()
+
+    console.log(iterator.next())
+    console.log(iterator.next())
+    console.log(iterator.next())
+    console.log(iterator.next())
+
+
+    function find() {
+        if (arguments.length==1) {
+            console.log('1')
+        }else if (arguments.length==2) {
+            console.log('2')
+        }else{
+            console.log('3')
+        }
+    }
+    find(1)
+    find(1,2)
+    find()
+</script>
+</html>

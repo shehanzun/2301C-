@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    var obj={
+        a:1,
+        b:2,
+        c:3
+    }
+
+    var copyObj=obj
+
+    console.log(copyObj)
+
+    obj.a='1'
+    console.log(copyObj)
+
+
+    var a='1'
+    
+
+    
+function shallowClone(obj) {
+    
+    //声明一个新的空对象存储拷贝后的数据
+    const newObj = {}
+    //遍历对象
+    for(let key in obj) {
+        //判断obj中是否有key属性
+        if(obj.hasOwnProperty(key) ){
+            //将数据克隆到新对象
+            newObj[key] = obj[key]
+        }
+    }
+    //返回值这个新对象    
+    return newObj
+}
+
+
+
+var obj={name:"1",age:10,}
+var obj1={nam:'2'}
+var cont=Object.assign(obj, obj1)
+console.log(obj)
+
+var l={
+    a:1,
+    get:function(){
+        l.get.apply(undefined)
+    }
+}
+console.log(this)
+
+let sum=(x,y)=>{
+    console.log(this)
+    return x+y
+};
+let suc=sum.bind(shallowClone,-1,-2);//x=1
+console.log(suc())
+
+// function d() {
+//     console.log(arguments)
+// }
+// let n=d(1,2)
+// console.log(n)
+
+function dd(...rest) {
+    console.log(rest)
+}
+let nn=dd(1,2,3,4,5)
+console.log(nn)
+
+</script>
+</html>

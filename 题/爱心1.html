@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+    }
+    div{
+        width: 100px;
+        height: 100px;
+        background-image: url('https://tse1-mm.cn.bing.net/th/id/OIP-C.N6Nb_5SReV8lHcNitp_rTQAAAA?w=178&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7');
+        
+        background-size: 40px 40px;
+        position: relative;
+        background-color: red;
+        transform: rotate(45deg);
+    }
+
+    div::after{
+        content: "";
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        left: 0px;top: -50px;
+        background-image: url('https://tse1-mm.cn.bing.net/th/id/OIP-C.N6Nb_5SReV8lHcNitp_rTQAAAA?w=178&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7');
+        z-index: -11;
+        
+        background-size: 40px 40px;
+        border-radius: 50%;
+    }
+    
+
+    div::before{
+        content: "";
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        left: -50px;top: 0px;
+        background-image: url('https://tse1-mm.cn.bing.net/th/id/OIP-C.N6Nb_5SReV8lHcNitp_rTQAAAA?w=178&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7');
+        background-size: 40px 40px;
+        border-radius: 50%;
+    }
+</style>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>

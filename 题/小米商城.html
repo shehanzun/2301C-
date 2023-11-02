@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+    }
+
+    .header {
+        width: 100%;
+        height: 50px;
+        padding: 0px 100px;
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12m px;
+    }
+
+    .ri {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav {
+        width: 100%;
+        height: 100px;
+        padding: 0px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navcenter {
+        flex: 1;
+        margin-left: 100px;
+    }
+
+    .navrig {
+        display: flex;
+    }
+
+    .navrig input {
+        width: 250px;
+        height: 50px;
+    }
+
+    .navrig button {
+        width: 50px;
+        height: 50px;
+        transform: translateX(-5px);
+    }
+
+    .title {
+        width: 100%;
+        height: 50px;
+        padding: 0px 100px;
+        background-color: #eee;
+        display: flex;
+        align-items: center;
+    }
+
+    .content .show {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid black;
+        line-height: 20px;
+        text-align: center;
+        margin-right: 30px;
+    }
+
+    .content {
+        width: 100%;
+        padding: 0px 100px;
+    }
+
+    .phone {
+        margin: 40px 0px;
+    }
+
+    .phone .tit {
+        display: flex;
+        align-items: center;
+    }
+
+    .phone .tit h2 {
+        color: orangered;
+    }
+
+    .phone .box {
+        display: flex;
+        flex-wrap: wrap;
+        border-top: 1px solid #000;
+    }
+
+    .phone .box .oo {
+        width: 20%;
+        text-align: center;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 10px 0px;
+    }
+
+    .phone .box .oo:hover {
+        color: orangered;
+
+    }
+
+    .imgs img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .imgs {
+        position: fixed;
+        right: 0;
+        bottom: 50px;
+        width: 90px;
+        background-color: white;
+    }
+
+    .tit img {
+        width: 40px;
+    }
+
+    .imgs div {
+        width: 100%;
+        border: 1px solid #ccc;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .ri img {
+        width: 25px;
+        margin: 0px 3px;
+    }
+
+    .ri p {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+    }
+
+    .navrig img {
+        width: 20px;
+    }
+
+    .footer{
+        width: 100%;
+        padding: 0px 100px;
+    }
+
+    .footer img{
+        width: 28px;
+    }
+
+    .footer li{
+        list-style: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .footer ul{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid #000;
+        padding-bottom: 20px;
+    }
+
+    .di img{
+        width: 100%;
+    }
+</style>
+
+<body>
+    <div class="header">
+        <div class="Hleft">
+
+        </div>
+        <div class="ri">
+            <div class="Hright">
+
+            </div>
+
+            <p><img src="https://i8.mifile.cn/b2c-mimall-media/d7db56d1d850113f016c95e289e36efa.png" alt=""> 购物车 (0)</p>
+        </div>
+    </div>
+
+    <div class="nav">
+        <div class="navleft">
+            <img style="width: 50px;" src="https://cdn.cnbj1.fds.api.mi-img.com/mi.com-assets/shop/img/logo-mi2.png"
+                alt="">
+        </div>
+        <div class="navcenter"></div>
+        <div class="navrig">
+            <input type="text" value="门锁">
+            <button><img src="./icon//搜索.png" alt=""></button>
+        </div>
+    </div>
+
+    <div class="title">
+        首页 / 全部商品分类
+    </div>
+
+    <div class="content">
+        <div class="phone">
+            <div class="tit"><img class="bto" src="./icon/下.png" alt=""><img class="top" src="./icon/上.png" alt="">
+                <h2>手机</h2>
+            </div>
+            <div class="box">
+            </div>
+        </div>
+
+        <div class="phone">
+            <div class="tit"><img class="bto" src="./icon/下.png" alt=""><img class="top" src="./icon/上.png" alt="">
+                <h2>电视</h2>
+            </div>
+            <div class="box1 box">
+            </div>
+        </div>
+    </div>
+
+    <div class="imgs">
+
+    </div>
+
+
+    <div class="footer">
+        <ul>
+            <li>
+                <img src='https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/12eb0965ab33dc8e05870911b90f3f13.png' alt="">
+                <span>预约维修服务</span>
+            </li>
+            <li>
+                <img src="./icon//七天无理由.png" alt="">
+                <span>7天无理由退货</span>
+            </li>
+            <li>
+                <img src="./icon/15.png" alt="">
+                <span>15天免费换货</span>
+            </li>
+            <li>
+                <img src="./icon//礼物.png" alt="">
+                <span>满69元包邮</span>
+            </li>
+            <li>
+                <img src="./icon//坐标.png" alt="">
+                <span>1100余家售后网点</span>
+            </li>
+        </ul>
+
+        <div class="di">
+            <img src="./icon/di.png" alt="">
+        </div>
+    </div>
+
+</body>
+<script>
+
+
+    const headerlist = {
+
+        left: ['小米官网 |', '小米商城 | ', 'MIUI | ', 'IoT | ', '云服务 | ', '天星数科 | ',
+            '有品 | ', '小爱开放平台 | ', '资质证照 | ', '协议规则 | ', '下载app | ', 'Select Location '],
+        rig: ['登录 |', '注册 |', '消息通知']
+    }
+
+    let Hright = document.querySelector('.Hright')
+
+    for (var i = 0; i < headerlist.rig.length; i++) {
+        Hright.innerText += headerlist.rig[i]
+    }
+
+    let Hleft = document.querySelector('.Hleft')
+
+    for (var i = 0; i < headerlist.left.length; i++) {
+        Hleft.innerText += headerlist.left[i]
+    }
+
+
+    const navlist = [
+        '   全部商品分类  ',
+
+
+        '  Xiaomi手机  ',
+        'Redmi手机  ',
+        '电视  ',
+        '笔记本  ',
+        '平板  ',
+        '家电  ',
+        '路由器p  ',
+        '服务中心  ',
+        '社区  ',]
+
+    let navcenter = document.querySelector('.navcenter')
+    for (var i = 0; i < navlist.length; i++) {
+        navcenter.innerText += '           ' + navlist[i] + '            '
+    }
+
+
+    let box = document.querySelector('.box')
+
+    let box1 = document.querySelector('.box1')
+
+    function list(num, div, img, val) {
+        for (var i = 0; i < num; i++) {
+            div.innerHTML += `
+        <div class='oo'>
+            <img src='${img}' alt="">
+            <p>${val}</p>    
+        </div>
+        `
+        }
+    }
+    list(6, box, "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8acce2de38a7b1a0135052f9bc6914f1.png", '遥遥领先')
+
+    list(7, box1, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c2e3fdbf6fe7a13c06644f16c8dc8877.png', '华为mate60')
+    let bto = document.querySelectorAll('.bto')
+    let tops = document.querySelectorAll('.top')
+
+    
+
+    for (let i=0;i<tops.length;i++){
+        tops[i].style.display = 'none'
+        tops[i].onclick=function(){
+            this.style.display='none'
+            if (i==0) {
+                box.style.display='flex'
+            }else if (i==1) {
+                box1.style.display='flex'
+            }
+            bto[i].style.display='block'
+        }
+    }
+
+    for (let i = 0; i < bto.length; i++) {
+        bto[i].onclick = function (e) {
+            this.style.display='none'
+            if (i==0) {
+                box.style.display='none'
+            }else if (i==1) {
+                box1.style.display='none'
+            }
+            tops[i].style.display='block'
+        }
+    }
+
+
+    tops.onclick = function () {
+        tops.style.display = 'none'
+        box.style.display = 'flex'
+        bto.style.display = 'block'
+    }
+
+    let imgs = [
+        'https://i8.mifile.cn/b2c-mimall-media/98a23aae70f25798192693f21c4d4039.png',
+        'https://i8.mifile.cn/b2c-mimall-media/55cad219421bee03a801775e7309b920.png',
+        'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/12eb0965ab33dc8e05870911b90f3f13.png',
+        'https://i8.mifile.cn/b2c-mimall-media/4f036ae4d45002b2a6fb6756cedebf02.png',
+        'https://i8.mifile.cn/b2c-mimall-media/d7db56d1d850113f016c95e289e36efa.png',
+        'https://i1.mifile.cn/f/i/2018/home/totop.png'
+    ]
+
+    let l = ['手机App', '个人中心', '售后服务', '人工客服', '购物车', '回顶部']
+
+    let img = document.querySelector('.imgs')
+    for (var i = 0; i < imgs.length; i++) {
+        img.innerHTML += `<div>
+            <img src='${imgs[i]}'/><p>${l[i]}</p>
+            </div>`
+    }
+
+    let goTop = document.querySelectorAll('.imgs div')
+    goTop[5].style.display = 'none'
+
+    window.addEventListener('scroll', function (e) {
+        let pageY = window.pageYOffset
+        if (pageY >= 500) {
+            goTop[5].style.display = 'block'
+        } else {
+            goTop[5].style.display = 'none'
+        }
+    })
+
+
+</script>
+
+</html>
