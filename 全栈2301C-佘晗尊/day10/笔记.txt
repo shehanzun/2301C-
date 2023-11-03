@@ -1,0 +1,109 @@
+let c = [1]
+        let c1 = c.push(1, 2, 3)
+        console.log(c, c1, 'push')//返回新数组长度,会改变原数组
+
+        let place = ['11', '22']
+        let rest = place.pop()
+        console.log(place, rest, 'pop')//返回删除的值,会改变原数组
+
+        let uc = c.unshift('1', '2')
+        console.log(c, uc, 'unshift')//返回新数组长度,会改变原数组
+
+        let cs = c.shift()
+        console.log(c, cs, 'shift')//返回删除的值,会改变原数组
+
+        let arr1 = c.concat(place)
+        console.log(arr1, c, place, 'concat')//原数组不变,返回新数组
+
+        let sorts = c.sort((a, b) => {
+            return b - a
+        })
+        console.log(c, sorts, 'sort')//返回改变后的数组,原数组也会变
+
+        let o = arr.join('-')
+        console.log(arr, o, 'join')//原数组不变,返回拼接好的字符串
+
+        console.log(o)
+        let p = o.split('-')
+        console.log(o, p, 'split')//原值不变,返回数组
+
+
+        let ps = arr.toString()
+        console.log(arr, ps, 'toString')//原数组不变,返回逗号相隔的字符串
+
+        let pa = arr.slice(0, 1)
+        console.log(arr, pa, 'slice')//原数组不变,返回数组形式截取的值
+
+
+
+
+字符串转数字：
+
+
+Number  强制转换数据,只能转化数字类型的字符串,有一个不是,就是NaN
+
+parseInt 取整数据类型转换,只转换整数,和小数点前的整数数据类型,但是首字母是字符串,将NaN
+
+parseFloat 浮点数取整,只转换小数,但是首字母是字符串,将NaN
+
+isNaN 用来检查是否转换为数字类型
+
+js数据类型:ss
+
+基本数据类型
+number、string、undefined、null、boolean、symbol、bigint
+
+引用数据类型[对象类型)
+(1)标准普通对象: object
+(2) 特殊对象: Array、RegExp、Date、Math、Error...
+(3)可调用对象/执行对象: function
+
+Js中的数据类型转换有两种模式，一种是隐式转换，一种是显示转换
+隐式转换: 浏览器默认去转换，用Number()
+显示转换: 自己手动用Number0，parselnt，parseFloat等
+
+
+typeof: 这种方法只能检测基本数据类型，null 和对象的不准
+instanceof:只要是基本数据类型检测就是false，只要是引用数据类型，并且右边是 Object 就是true，可以很好的区分是哪一大类型
+constructor:可以检查基本和引用数据类型，但是可以被修改，有一定的缺陷Object.prototype.toString.call(): 这种方式是最准的，什么类型都可以检测
+Object.getPrototypeof(): 这种方法获取原型
+
+
+作用域及作用域链
+所谓作用域通俗点讲就是变量的可作用范围。 两大核心 作用域和原型
+一般有三种作用域。全局，函数，块。
+
+
+什么是函数提升
+创建函数有两种形式，一种是函数声明，另外“种是函数字面量，只有函数声明才有变量提升
+
+
+String
+情景1: String(val)或者val.toString0
+转换规则: 除对象以外，都是直接用字符串包起来
+console.log(String(1)); //'1'
+console.log(String(NaN)); //'NaN!
+console.log(String(null)); //'null!
+console.log(String(undefined)); //'undefined!
+console.log(String(Symbol())); //'SymbolC)'
+console.log(String(J)); //'[object Object]
+情景2:加号+
+除了数学运算，还可能代表字符串拼接，也会发生字符串转换
+(1) +有两边，一边是字符串或者某些对象例1:
+console.log(10+'10'); //1010
+(2) ++
+i是数字类型的时候
+let i=10;
+i++
+console.log(i); //11
+
+
+3Boolean
+转换规则:
+除了“0/NaN/空字符串/null/undefined"五个值是false，其余值都是true
+
+
+==比较时的相互转换规则
+情景1:对象==字符串
+按对象转字符串规则Symbol.toPrimitive->valueOf->toString
+将对象转成字符串，然后比较
